@@ -97,3 +97,34 @@ const add = (x,y) => x + y;
 const subtract = (x,y) => x - y;
 console.log("Call with callback add:", operate(10,5, add));
 console.log("Call with callback su:", operate(10,5, subtract));
+
+
+console.log("---Closure---")
+//Closure - combination of functions and their Environment
+//easier - inside function "remember" variables
+//outside function even after , how outside function is over their work
+
+function createCounter() {
+    let count = 0; //this variables in lexical Environment
+
+    //inside function,that will be returned
+    return function(){
+        count++;
+        console.log(count);
+        return count;
+    };
+}
+const counter1 = createCounter();
+counter1();
+counter1();//remeber previous variable
+
+const counter2 =  createCounter();
+counter2();
+
+console.log("---self-calling function");
+//IIFE - Immediately Invoked Function Expression;
+
+(function() {
+    const SecretMessage = "This is  a message is not available globally";
+    console.log(SecretMessage);
+})();
