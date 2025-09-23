@@ -56,3 +56,14 @@ const person = {
 }
 person.greetRegular();
 person.greetArrow();
+
+// parameters function
+
+console.log("---Parameters fuction---");
+
+//defaults parameters 
+function greet(name = "somebody"){
+    console.log(`welcome ${name}!`);
+}
+greet("Anna");
+greet();
