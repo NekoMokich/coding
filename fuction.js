@@ -79,3 +79,21 @@ function sumAll (...numbers) {
     return total;
 }
 console.log("Summa 1,2,3,4", sumAll(1,2,3,4));
+
+//call-back function
+//this function ,given in another fuction 
+//in term of the argument 
+
+//classic way of using call-back
+
+setTimeout(() => {
+    console.log("this message apppear every 2 seconds");
+}, 2000);
+
+function operate (a, b, operationCallback) {
+    return operationCallback(a,b);
+}
+const add = (x,y) => x + y;
+const subtract = (x,y) => x - y;
+console.log("Call with callback add:", operate(10,5, add));
+console.log("Call with callback su:", operate(10,5, subtract));
