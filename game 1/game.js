@@ -64,3 +64,6 @@ function reset() {
     }
     player.innerText = 'Now X moving '
 }
+
+
+//LOL
