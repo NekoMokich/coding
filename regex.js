@@ -174,11 +174,28 @@ console.log("Exercise 1", exStr1.match(exRegex1));
 const exStr2_1 = "123-456-7890";
 const exStr2_2 = "123-456-789";
 const exRegex2 = /^\d{3}-\d{3}-\d{4}$/;
-console.log("Exercise 2 VAlid", exRegex2.test(exStr2_1));
-console.log("Exercise 2 Unvalid", exRegex2.test(exStr2_2));
+console.log("Exercise 2 Valid", exRegex2.test(exStr2_1));
+console.log("Exercise 2 invalid", exRegex2.test(exStr2_2));
 
 
 //Exercise 3
 //remove not needed spaces 
 const exStr3 = "Hello               world,         this     is  a   test.";
 console.log("Exercise 3 ", exStr3.replace(/\s+/g," "));
+
+
+
+//Exercise 4 Validation of password 
+//password must be at least 8 sybmols,must Have one letter in lowercase and Uppercase
+
+const pass1 = 'aB123456';
+const pass2 = 'ab123456';
+const exRegex4 = /^(?=.*[a-z])(?=.[A-Z])(?=.*\d).{8,}$/;
+//^ - start of line 
+//(?=.*[a-z]) - looking forward  - where is lowercase letter in line
+//(?=.*[A-Z]) - looking forward  - where is Uppercase letter in line
+//(?=.*\d) - searching for number
+//{8,} - line dont have at least 8 symbols 
+//$ - end of the line 
+console.log("Password is valid", exRegex4.test(pass1));
+console.log("Password is invalid", exRegex4.test(pass2));
