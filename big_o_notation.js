@@ -7,7 +7,7 @@
 //execution of the algorithm in relation to the size of the input data
 
 
-//==========================================================================
+//|==========================================================================|
 //O(1) - constant time
 //Time does not depend on the size of the input data
 function getFirstElement(arr) {
@@ -20,7 +20,8 @@ console.log(getFirstElement(array2)); // "test"
 
 
 
-//==========================================================================   
+//|==========================================================================|   
+
 //O(n) - linear time
 //Time grows linearly with the size of the input data
 //if 'n' is doubled ,time is doubled
@@ -35,9 +36,38 @@ function sumArray(arr) {
     }
     return sum;
 }
+console.log(sumArray([1, 2, 3, 4, 5])); // 15
+const array1 = new Array(1000000).fill(1);
+console.log(sumArray(array1)); // 1000000
 
+//|==========================================================================|
 
+// //O(n^2) - quadratic time,
+//time grows quadratically with the size of the input data
+//if 'n' is doubled ,time is quadrupled
+console.log("---O(n^2) quadratic time---");
+//example 1 - find duplicate elements in an array
+function hasDuplicates(arr) {
+   const n = arr.length;
+   for (let i = 0; i < n; i++) { //internal circle done n times
+       for (let j = i + 1; j < n; j++) { //circle done n times
+           if (i !== j && arr[i] === arr[j]) {
+               return true;//if we find duplicate - return true
+           }
+       }
+   }            
+    return false; //if we don't find duplicate - return false
+}
+console.log(hasDuplicates([1, 2, 3, 4, 5])); // false
+console.log(hasDuplicates([1, 2, 3, 4, 5, 3])); // true
 
-//==========================================================================
-//O(n^2) - quadratic,
+//|==========================================================================|
 //O(log n) - logarithmic
+//Time grows logarithmically with the size of the input data
+//if 'n' is doubled ,time increases by 1
+console.log("---O(log n) logarithmic time---");
+
+//Binary search works only on sorted arrays
+//binary search - divide and conquer algorithm
+//he divides the search interval in half
+//and can find and needed element,then repeat the process for this half
