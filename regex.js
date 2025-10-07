@@ -149,3 +149,36 @@ const match19 = str19.match(regex19);
 console.log("Example 19 (full match): ", match19[0]);
 console.log("Example 19 (group 1): ", match19[1]);
 console.log("Example 19 (group 2): ", match19[2]);
+
+//20. Method with replace() with regular equation
+const regex20 = /-| /g;
+const str20 = "2025-10-01 12:00";
+console.log("example 20", str20.replace(regex20, ":"));
+
+//21. sspliting the line with massive sublines
+//method Split()
+
+const regex21 = /\d/g;
+const str21 = "item1item2item3";
+console.log("example 21", str21.split(regex21));
+
+//Exercise: 1
+//fidn all js word in lines ,regardless of registry 
+const exStr1 = "I love JS. js is awesome. Js is powerful";
+const exRegex1 = /js/gi;
+console.log("Exercise 1", exStr1.match(exRegex1));
+
+//Exercise 2
+//check if phone number is valid 
+//valid format is xxx-xxx-xxxx
+const exStr2_1 = "123-456-7890";
+const exStr2_2 = "123-456-789";
+const exRegex2 = /^\d{3}-\d{3}-\d{4}$/;
+console.log("Exercise 2 VAlid", exRegex2.test(exStr2_1));
+console.log("Exercise 2 Unvalid", exRegex2.test(exStr2_2));
+
+
+//Exercise 3
+//remove not needed spaces 
+const exStr3 = "Hello               world,         this     is  a   test.";
+console.log("Exercise 3 ", exStr3.replace(/\s+/g," "));
