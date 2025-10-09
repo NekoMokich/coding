@@ -71,3 +71,33 @@ console.log("---O(log n) logarithmic time---");
 //binary search - divide and conquer algorithm
 //he divides the search interval in half
 //and can find and needed element,then repeat the process for this half
+
+function binarySearch(arr, target) {
+    let left = 0;
+    let right = sortedArray.length - 1;
+    
+    while (left <= right) {
+        const mid = Math.floor((left + right) / 2);
+        if (sortedArray[mid] === target) {
+            return mid; //element found
+        }
+        if (sortedArray[mid] < target) {
+                left = mid + 1; //Needed element in right side
+        } else {
+            right = mid - 1; //meeded element in left side
+        }
+
+    }
+    return -1; //element not found
+} //amount of interaction is gonna be logarithmic from size of array
+
+
+const sortedNumbers = [2, 5, 8, 12, 16, 23, 56, 72, 88, 110];
+console.log(binarySearch(sortedNumbers, 23));
+console.log(binarySearch(sortedNumbers, 99));
+
+//|==========================================================================|
+//Linearothmic Time 
+//Time of doing is growing same as n Log n with size of input data
+//Golden middle between 0(n) and 0(n^2)
+//Most effective algorithims of sorting is got same difficulty
