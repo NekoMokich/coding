@@ -150,3 +150,7 @@ function findPermutations(arr) {
         findPermutations(rest);
     }
 }
+
+console.log("Find restruction of array[1,2,3] (n=3, n! = 6 Restructions)");
+findPermutations([1, 2, 3]); //6 restructions
+//findPermutations([1,2,3,4,5,6,7]); //5040 restructions - browser is frozing 
