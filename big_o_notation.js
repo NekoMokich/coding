@@ -101,3 +101,14 @@ console.log(binarySearch(sortedNumbers, 99));
 //Time of doing is growing same as n Log n with size of input data
 //Golden middle between 0(n) and 0(n^2)
 //Most effective algorithims of sorting is got same difficulty
+console.log("---O(n log n ) Linearothmic difficulty---")
+
+//example. Sorting arrey
+//using build in method sort, that is build in in most Js engines
+function sortArray(arr) {
+    //we here do not write own algorithm of sorting
+    //we using build in
+    return arr.slice().sort((a, b) => a - b);
+}
+const unsortedArray = [5, 3, 8, 1, 2, 7];
+console.log("Sorting Array" , sortArray(unsortedArray));
