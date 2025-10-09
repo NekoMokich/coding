@@ -72,22 +72,22 @@ console.log("---O(log n) logarithmic time---");
 //he divides the search interval in half
 //and can find and needed element,then repeat the process for this half
 
-function binarySearch(arr, target) {
+function binarySearch(sortedArray, target) {
     let left = 0;
     let right = sortedArray.length - 1;
-    
+
     while (left <= right) {
         const mid = Math.floor((left + right) / 2);
         if (sortedArray[mid] === target) {
-            return mid; //element found
+            return mid; // Элемент найден
         }
         if (sortedArray[mid] < target) {
-                left = mid + 1; //Needed element in right side
+            left = mid + 1; // Искомый элемент в правой половине
         } else {
-            right = mid - 1; //meeded element in left side
+            right = mid - 1; // Искомый элемент в левой половине
         }
-
     }
+    return -1
     return -1; //element not found
 } //amount of interaction is gonna be logarithmic from size of array
 
