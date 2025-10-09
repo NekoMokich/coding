@@ -27,10 +27,12 @@ console.log("3. Sorted Size:", sortedByLenght);
 const sorteResversByLenght = [...countries].sort((a ,b) => b.length - a.length);
 console.log("3. Sorted Size:", sorteResversByLenght);
 
-//4. sort by of vowerls in country name 
+//5. sort by of vowerls in country name 
 const countVowels = (str) => {
     const vowels = 'aeiouAEIOU';
     return str.split('').filter(letter => vowels.includes(letter)).length;
 };
 const sortedByVowelCount =[...countries].sort((a ,b) => countVowels(a)- countVowels(b));
 console.log("5.Sorted by amouts of vowels:", sortedByVowelCount)
+
+
