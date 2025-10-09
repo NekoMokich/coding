@@ -110,5 +110,43 @@ function sortArray(arr) {
     //we using build in
     return arr.slice().sort((a, b) => a - b);
 }
+
 const unsortedArray = [5, 3, 8, 1, 2, 7];
 console.log("Sorting Array" , sortArray(unsortedArray));
+
+//|==========================================================================|
+//Exponetial time 0(2^n)
+//time is done  in double with every added element in input data
+
+console.log("---O(2^n) Exponetial time---")
+
+//example - recursion is done by Fibonacci number
+
+function fibonacci(n) {
+    if (n <= 1) {
+            return n;
+    }
+    return fibonacci(n - 1) + fibonacci(n - 2); //double use of recursion call
+}
+
+console.log(fibonacci(5)); // 5
+console.log(fibonacci(40)); // 40
+
+//|==========================================================================|
+//Factorial Time 0(n!)
+//Time of working is growing depends with growing of input data
+//not effective for most of n
+
+console.log("---0(n!) Factorial Time---")
+
+//example - generating every array restructions
+
+function findPermutations(arr) {
+    if (arr.length === 0){
+        return;
+    }
+    for (let i = 0; i < arr.length; i++) {
+            const rest = arr.slice(0, i).concat(arr.slice(i + 1));
+        findPermutations(rest);
+    }
+}
