@@ -36,3 +36,46 @@ const sortedByVowelCount =[...countries].sort((a ,b) => countVowels(a)- countVow
 console.log("5.Sorted by amouts of vowels:", sortedByVowelCount)
 
 
+//6.Random Sorting 
+const randomSort = [...countries].sort(() => Math.random() - 0.5);
+console.log("6. Random sorted:", randomSort)
+
+// Classic sorting algorithms
+
+//1. Bubble Sort
+//  Idea: iterate through the array repeatedly, comparing adjacent elements,
+//  and swapping them if they are in the wrong order.
+//  Very slow for large arrays.
+
+const bubbleSort = (arr) => {
+    const newArr = [...arr];
+    const n = newArr.length;
+
+    for (let i = 0; i < n; i++) {
+        for (let j = 0; j < n - 1; j++) {
+            if (newArr[j].localeCompare(newArr[j + 1]) > 0) {
+                //
+                [newArr[j], newArr[j + 1]] = [newArr[j + 1], newArr[j]];
+            }
+        }
+    }
+    return newArr;
+}
+console.log("Bubble sorted:", bubbleSort(countries));
+
+//2. Selection Sort
+//  Idea: find the smallest (or largest) element in an array
+//  and place it at the beginning (or end) of the sorted part of array.
+//  O(n^2) - quadratic complexity
+//  Also slow for large arrays.
+
+//3. Insertion Sort
+//  Idea: build a sorted array one element at a time,
+//  inserting each new element in it's correct place.
+//  O(n^2) - quadratic complexity
+//  Efficient for small arrays or nearly sorted data.
+
+//4. Bogo Sort (Joke Sort)
+//  Idea: randomly shuffle the array until it is sorted.
+//  O((n+1)1) - factorial complexity
+//  A very inefficient and unrealistic algorithm, used for educational purposes only.
