@@ -20,4 +20,9 @@ while (keepPlaying) {
         'Guess the Number'
     ];    
 
+    //showing existing games
+    const index = readLineSync.keyInSelect(games,'Choose a game or exit:');
+
+    //deoending on player choose starting the game
+    
 }
