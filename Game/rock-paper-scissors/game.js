@@ -28,9 +28,9 @@ class RockPaperScissorsGame {
         this.computer = new Computer();
         this.options = ['rock', 'paper', 'scissors'];
         this.rules = {
-            rock: 'scissors',
-            paper: 'rock',
-            scissors: 'paper'
+            rock: 'scissors',// rock beats scissors
+            paper: 'rock',// paper beats rock
+            scissors: 'paper'// scissors beats paper
         };
     }
     //method to start the game
@@ -55,6 +55,15 @@ class RockPaperScissorsGame {
 
         this.determineWinner();
    
+    }
+    //method to determine the winner
+    determineWinner() {
+        const playerChoice = this.player.choices;
+        const computerChoice = this.computer.choices;
+
+        if (playerChoice === computerChoice) {
+            console.log("It's a tie!");
+        }
     }
 
 }
