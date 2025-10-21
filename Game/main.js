@@ -5,6 +5,7 @@ const readLineSync = require('readline-sync');
 
 //Importing game module
 const runGuessTheNumber = require('./guess-the-number/game');
+const runticTacToe = require('./tic-tac-toe/game');
 
 //Контроллер игрового цикла
 //Game loop controller
@@ -20,8 +21,11 @@ while (keepPlaying) {
     console.log("Which game mode do you want to play?");
 
     const games = [
-        'Guess the Number'
+        'Guess the Number',
+        'Tic-Tac-Toe'
     ];    
+
+    
 
     //showing existing games
     const index = readLineSync.keyInSelect(games,'Choose a game or exit:');
