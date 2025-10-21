@@ -5,7 +5,7 @@ const readlineSync = require('readline-sync');
 class Player {
     constructor(name) {
         this.name = name;
-        this.choices = null
+        this.choice = null
     }
 }  
 
@@ -15,18 +15,18 @@ class Computer extends Player {
         super('Computer');
     }   
     //methods for random choice moves for computer
-    makeRandomChoice() {
+    makeRandomChoice(options) {
         const randomIndex = Math.floor(Math.random() * options.length);
-        this.choices = options[randomIndex];
+        this.choice = options[randomIndex];
     }
 }
 
 //define main game logic
 class RockPaperScissorsGame {
-    constructor() {
+    constructor(player) {
         this.player = player;
         this.computer = new Computer();
-        this.options = ['rock', 'paper', 'scissors'];
+        this.choices = ['rock', 'paper', 'scissors'];
         this.rules = {
             rock: 'scissors',// rock beats scissors
             paper: 'rock',// paper beats rock
@@ -41,29 +41,43 @@ class RockPaperScissorsGame {
     }
     //method to play one round
     playRound() {
-        const choiceIndex = readlineSync.keyInSelect(this.options, 'Choose your move:');
+        const choiceIndex = readlineSync.keyInSelect(this.choices,'choose your move:');
         
         if (choiceIndex === -1) {
             console.log('Game exited.');
             return;
         }
-        this.player.choices = this.options[choiceIndex];
+        this.player.choice = this.choices[choiceIndex];
         this.computer.makeRandomChoice(this.choices);
 
-        console.log(`${this.player.name} chose: ${this.player.choices}`);
-        console.log(`Computer chose: ${this.computer.choices}`);
+        console.log(`${this.player.name} chose: ${this.player.choice}`);
+        console.log(`Computer chose: ${this.computer.choice}`);
 
         this.determineWinner();
    
     }
     //method to determine the winner
     determineWinner() {
-        const playerChoice = this.player.choices;
-        const computerChoice = this.computer.choices;
+        const playerChoice = this.player.choice;
+        const computerChoice = this.computer.choice;
 
         if (playerChoice === computerChoice) {
             console.log("It's a tie!");
+        } else if (this.rules[playerChoice] === computerChoice) {
+            console.log(`${this.player.name} wins!`);
+        } else {
+            console.log('Computer wins!');
         }
     }
 
 }
+//creating fuction to import game
+function runGame() {
+    const playerName = readlineSync.question('Enter your name: ');
+    const player = new Player(playerName || 'Player');
+    const game = new RockPaperScissorsGame(player);
+    game.start();
+}
+module.exports = runGame;
+
+
