@@ -35,7 +35,9 @@ while (keepPlaying) {
         case 0:
             runGuessTheNumber();
             break;
-            
+         case 1:
+            runticTacToe();
+            break;
     //later we gonna add other games
     default:
         console.log("Exiting the game. Goodbye!");
